@@ -57,7 +57,7 @@ nav .icons {
   margin-right: 50px;
 }
 footer {
-  margin-top: 50px;
+  padding-top: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -288,9 +288,6 @@ footer {
   nav ul {
     display: none;
   }
-  footer {
-    display: none;
-  }
 }
 @media screen and (min-width: 1201px) {
   .project-card {
@@ -320,4 +317,15 @@ footer {
     transform: translateX(-150px) translateY(-100px);
     z-index: 2;
   }
+}
+
+.text-square{
+  @apply bg-stone-800/70 ring-4 ring-stone-800/70 border-2 border-stone-200 backdrop-blur px-10 py-5 rounded-md
+}
+.logo_vsco{
+  height: 24px;
+  width: 24px;
+  color: white;
+  -webkit-mask: url(img/logos/vsco_icon.svg) center;
+  mask: url(img/logos/vsco_icon.svg) center;
 }
