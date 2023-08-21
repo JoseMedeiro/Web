@@ -12,7 +12,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 jobs:
-  run:
+  run: # Parses and pushes the new files
     runs-on: [ubuntu-latest]
     steps:
     - name: Checkout 🛎️
@@ -26,12 +26,12 @@ jobs:
         git add -A
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -m "Add changes" -a || echo "No changes present"
+        git commit -m "Parsed HTML files" -a || echo "No changes present"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-  deploy:
+  deploy: # Deploys the website
     needs: [run]
     environment:
       name: github-pages
