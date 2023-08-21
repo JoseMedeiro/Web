@@ -1,5 +1,4 @@
 addEventListener("scroll", (event) => moveEye(event));
-addEventListener("scroll", (event) => scrollButBetter(false));
 
 dot = (a, b) => a.map((x, i) => a[i] * b[i]).reduce((m, n) => m + n);
 norm = (a) => Math.sqrt(dot(a,a));
@@ -71,17 +70,34 @@ function scrollButBetter(button){
     }
 }
 function moveEye(){
-    var windowHeight = window.innerHeight*0.4;
-    var windowWidth  = window.innerWidth/2;
-    var scrollNorm   = window.scrollY*0.4/1;
-    var eye          = document.getElementById('eyeSocket');
-    var distance     = Math.min(1, scrollNorm/windowHeight);
+    var windowHeight  = window.visualViewport.height*0.4;
+    var windowWidth   = window.visualViewport.width/2;
+    var scrollNorm    = window.scrollY*0.4/1;
+    var eye           = document.getElementById('eyeSocket');
+    var distance      = Math.min(1, scrollNorm/windowHeight);
     
-    var futureSize = 2*128*(1-distance/2);
-    eye.style.width = futureSize+'px';
-    eye.style.height = futureSize+'px';
-    eye.style.top = Math.max(0, windowHeight - scrollNorm + futureSize/2*(distance -1))+'px';
-    eye.style.left = windowWidth - futureSize/2+'px';
+    var futureSize    = 2*128*(1-distance/2);
+    eye.style.width   = futureSize+'px';
+    eye.style.height  = futureSize+'px';
+    eye.style.top     = Math.max(0, windowHeight - scrollNorm + futureSize/2*(distance -1))+'px';
+    eye.style.left    = windowWidth - futureSize/2+'px';
+
+    if(window.scrollY < window.visualViewport.height*0.9){
+      eye.setAttribute('onclick',"");
+      if(eye.classList.contains("cursor-pointer")){
+        eye.classList.toggle("cursor-pointer");
+      }
+    }else{
+      var toUp = window.scrollY/window.visualViewport.height;
+      var toUp = toUp - Math.floor(toUp);
+      if(toUp < 0.1){
+        toUp = toUp + 1;
+      }
+      if(!eye.classList.contains("cursor-pointer")){
+        eye.classList.toggle("cursor-pointer");
+      }
+      eye.setAttribute('onclick',"scrollPageSmart(-1)");
+    }
     /*
     eye.animate({
         width: `${futureSize}px`,
@@ -91,6 +107,14 @@ function moveEye(){
     }, {  fill: "forwards" })
     */
 }
-function scrolldy(){
-  scroll(0,window.scrollY+1)
+function scrollPageSmart(direction){
+  var toUp = window.scrollY/window.visualViewport.height;
+  var toUp = toUp - Math.floor(toUp);
+  if(direction > 0){
+    toUp = 1 - toUp;
+  }
+  if(toUp < 0.1){
+    toUp = 1 + toUp;
+  }
+  scroll(0,window.scrollY+Math.sign(direction)*toUp*window.visualViewport.height)
 }

@@ -33,7 +33,7 @@
     <nav>
     <div class="h-14 w-full subnav uppercase font-bold text-lg">
         <a href="#intro">
-            Introduçãoaa
+            Introdução
         </a>
 
         <div>
@@ -41,14 +41,12 @@
         </div>
     </div>
     <!-- Eye -->
-    <div style="left: calc(50vw - 8rem); top:calc(40vh - 8rem);" class="absolute flex items-center justify-center bg-stone-700 h-64 w-64 rounded-full" id="eyeSocket">
+    <div style="left: calc(50% - 8rem); top:calc(40vh - 8rem);" class="absolute flex items-center justify-center bg-stone-700 h-64 w-64 rounded-full" id="eyeSocket">
         
         <img src="img/ME.jpg" class="w-11/12 h-11/12 object-cover rounded-full">
         
     </div>
-    <!-- Menu -->
-    <div class="h-32">
-    </div>
+    
 </nav>
     <div class="ahhhh">
         <section style="background-image: url('img/bg/bg_1.jpeg')" class="h-screen bg-cover relative">
@@ -56,11 +54,47 @@
             <div class="h-1/2 w-full p-10 flex justify-center items-center">
                     <p class="bg-stone-700/50 ring-4 ring-stone-700/50 border-2 border-stone-200 backdrop-blur-sm px-6 py-2 rounded-xl mb-6">José Medeiro's Website</p>
             </div>
-            <span class="absolute bottom-8 inset-x-0 flex justify-center">
-                <i class="fa-solid fa-chevron-down fa-lg cursor-pointer text-white" onclick="scrollButBetter(true)"></i>
-            </span>
+            <div class="absolute bottom-8 inset-x-0 flex justify-center" onclick="scrollPageSmart(1)">
+                <i class="fa-solid fa-chevron-down fa-lg cursor-pointer text-white"></i>
+            </div>
         </section>
-        <section id="intro" class="h-screen flex justify-center items-center bg-brick-500">
+        <section id="intro" style="background-image: url('img/bg/bg_2.jpeg')" class="relative h-screen flex justify-around items-center bg-cover">
+            <h1 class="text-square">Who am I?</h1>
+            <div class="text-square w-3/5 text-base">
+                <p class="py-1">For starters, I'm 22 years old, Portuguese, Aerospace Engineer (at least the bachelor is made), with a dubious sense of color combination, as it can be seen by this website.</p>
+                <p class="py-1">I enjoy some hobbies, either playing (Europa Universalis IV or For The King), walking around Lisbon or Alentejo, taking some pictures in between those strolls or reading.</p>
+                <p class="py-1">Naturally, web deving is also one of my tastes, resulting in this website.</p>
+            </div>
+            <div class="absolute bottom-8 inset-x-0 flex justify-center" onclick="scrollPageSmart(1)">
+                <i class="fa-solid fa-chevron-down fa-lg cursor-pointer text-white"></i>
+            </div>
+        </section>
+        <section id="fotos" style="background-image: url('img/bg/bg_3.jpeg')" class="relative h-screen flex flex-row-reverse justify-around items-center bg-cover">
+            <h1 class="text-square">Who am I?</h1>
+            <div class="text-square w-3/5 text-base">
+                <p class="py-1">For starters, I'm 22 years old, Portuguese, Aerospace Engineer (at least the bachelor is made), with a dubious sense of color combination, as it can be seen by this website.</p>
+                <p class="py-1">I enjoy some hobbies, either playing (Europa Universalis IV or For The King), walking around Lisbon or Alentejo, taking some pictures in between those strolls or reading.</p>
+                <p class="py-1">Naturally, web deving is also one of my tastes, resulting in this website.</p>
+            </div>
+            <div class="absolute bottom-8 inset-x-0 flex justify-center" onclick="scrollPageSmart(1)">
+                <i class="fa-solid fa-chevron-down fa-lg cursor-pointer text-white"></i>
+            </div>
         </section>
     </div>
+    <html>
+  <footer class="h-screen bg-stone-800">
+    <div class="flex flex-col items-center">
+      <h1 class="pb-5">Contacts</h1>
+      <div class="flex space-x-4">
+        <a href="" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a href="" target="_blank" class="text-stone-200 flex items-center"><svg style="height: 24px; width: 24px"><use xlink:href='/img/logos/vsco_icon.svg#img' href="/img/logos/vsco_icon.svg#img"></use></svg></a>
+      </div>
+    </div>
+  </footer>  
+</html>
+
 </body>
